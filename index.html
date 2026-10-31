@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shaswat — Music for everyone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Shaswat Home">
+        <span class="brand-mark" aria-hidden="true"><img src="assets/shaswat-logo.jpg" alt="Shaswat" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></span>
+        <span class="brand-name">Shaswat</span>
+      </a>
+
+      <nav class="nav-primary">
+        <button class="nav-item active" data-view="home" type="button">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M12.5 3.2 4 9.8V21h5.5v-6.5h5V21H20V9.8l-7.5-6.6z"/></svg>
+          Home
+        </button>
+        <button class="nav-item" data-view="search" type="button">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
+          Search
+        </button>
+        <button class="nav-item" data-view="library" type="button">
+          <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path fill="currentColor" d="M3 4h2v16H3V4zm4 0h2v16H7V4zm3.5 0 8.5 2v14.2l-8.5-2V4z"/></svg>
+          Your Library
+        </button>
+        <button class="nav-item" data-view="discover" type="button">
+          <span aria-hidden="true">♫</span>
+          Discover Music
+        </button>
+      </nav>
+
+      <div class="sidebar-actions">
+        <button class="chip" type="button" id="create-playlist">
+          <span class="chip-plus">+</span> Create Playlist
+        </button>
+        <button class="chip liked" type="button" data-view="liked">
+          <span class="liked-icon">♥</span> Liked Songs
+        </button>
+      </div>
+
+      <div class="playlist-list" id="sidebar-playlists"></div>
+
+      <div class="sidebar-footer">
+        <a href="#">Cookies</a>
+        <a href="#">Privacy</a>
+        <button type="button" class="lang-btn">English</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="nav-arrows">
+          <button type="button" class="circle-btn" id="back-btn" aria-label="Go back">‹</button>
+          <button type="button" class="circle-btn" id="fwd-btn" aria-label="Go forward">›</button>
+        </div>
+        <div class="search-wrap" id="search-wrap" hidden>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8l5 5 1.5-1.5-5-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>
+          <input type="search" id="search-input" placeholder="What do you want to listen to?" autocomplete="off" />
+        </div>
+        <div class="topbar-spacer"></div>
+        <div class="user-menu">
+          <button type="button" class="pill install">Install App</button>
+          <button type="button" class="avatar" aria-label="Profile">S</button>
+        </div>
+      </header>
+
+      <div class="content" id="content">
+        <!-- filled by JS -->
+      </div>
+    </main>
+
+    <footer class="player" id="player">
+      <div class="now-playing">
+        <div class="np-art" id="np-art"></div>
+        <div class="np-meta">
+          <div class="np-title" id="np-title">Select a song</div>
+          <div class="np-artist" id="np-artist">Shaswat</div>
+        </div>
+        <button type="button" class="icon-btn like-btn" id="like-btn" aria-label="Save to Liked Songs">♡</button>
+      </div>
+
+      <div class="transport">
+        <div class="transport-controls">
+          <button type="button" class="icon-btn" id="shuffle-btn" aria-label="Shuffle" title="Enable shuffle">
+            <svg viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M13.15 2.15a.5.5 0 0 1 .7 0l2 2a.5.5 0 0 1 0 .7l-2 2a.5.5 0 1 1-.7-.7L14.29 5H12.5a3.5 3.5 0 0 0-2.8 1.4L7.4 9.6A4.5 4.5 0 0 1 3.8 11.4H1.5a.5.5 0 0 1 0-1h2.3a3.5 3.5 0 0 0 2.8-1.4L9 5.8A4.5 4.5 0 0 1 12.5 4h1.79l-1.14-1.15a.5.5 0 0 1 0-.7zM1.5 4.6h2.3a4.5 4.5 0 0 1 3.6 1.8l.4.5-.8 1-.4-.5A3.5 3.5 0 0 0 3.8 5.6H1.5a.5.5 0 0 1 0-1zm8.7 4.5.8-1 .4.5a3.5 3.5 0 0 0 2.8 1.4h1.79l-1.14-1.15a.5.5 0 0 1 .7-.7l2 2a.5.5 0 0 1 0 .7l-2 2a.5.5 0 1 1-.7-.7L14.29 12H12.5a4.5 4.5 0 0 1-3.6-1.8l-.4-.5z"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="prev-btn" aria-label="Previous">
+            <svg viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M3.3 1a.7.7 0 0 1 .7.7v5.15l8.95-5.2a.7.7 0 0 1 1.05.6v12.5a.7.7 0 0 1-1.05.6L4 9.15V14.3a.7.7 0 0 1-1.4 0V1.7a.7.7 0 0 1 .7-.7z"/></svg>
+          </button>
+          <button type="button" class="play-main" id="play-btn" aria-label="Play">
+            <svg class="icon-play" viewBox="0 0 16 16" width="18" height="18"><path fill="currentColor" d="M3 1.7v12.6a.7.7 0 0 0 1.05.6l10.1-6.3a.7.7 0 0 0 0-1.2L4.05 1.1A.7.7 0 0 0 3 1.7z"/></svg>
+            <svg class="icon-pause" viewBox="0 0 16 16" width="18" height="18" hidden><path fill="currentColor" d="M2.7 1a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7H2.7zm8 0a.7.7 0 0 0-.7.7v12.6a.7.7 0 0 0 .7.7h2.6a.7.7 0 0 0 .7-.7V1.7a.7.7 0 0 0-.7-.7h-2.6z"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="next-btn" aria-label="Next">
+            <svg viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M12.7 1a.7.7 0 0 0-.7.7v5.15L3.05 1.65A.7.7 0 0 0 2 2.25v12.5a.7.7 0 0 0 1.05.6L12 9.15V14.3a.7.7 0 0 0 1.4 0V1.7a.7.7 0 0 0-.7-.7z"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="repeat-btn" aria-label="Repeat" title="Enable repeat">
+            <svg viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M0 4.75A3.75 3.75 0 0 1 3.75 1h8.5A3.75 3.75 0 0 1 16 4.75v.75a.75.75 0 0 1-1.5 0v-.75A2.25 2.25 0 0 0 12.25 2.5h-8.5A2.25 2.25 0 0 0 1.5 4.75v5.5A2.25 2.25 0 0 0 3.75 12.5h8.5A2.25 2.25 0 0 0 14.5 10.25v-.75a.75.75 0 0 1 1.5 0v.75A3.75 3.75 0 0 1 12.25 14h-8.5A3.75 3.75 0 0 1 0 10.25v-5.5z"/><path fill="currentColor" d="m10.53 8.47 2.47 2.48-2.47 2.47a.75.75 0 1 0 1.06 1.06l3-3a.75.75 0 0 0 0-1.06l-3-3a.75.75 0 1 0-1.06 1.05z"/></svg>
+          </button>
+        </div>
+        <div class="progress-row">
+          <span class="time" id="time-elapsed">0:00</span>
+          <input type="range" id="seek" min="0" max="100" value="0" step="0.1" aria-label="Seek" />
+          <span class="time" id="time-total">0:00</span>
+        </div>
+      </div>
+
+      <div class="player-extras">
+        <button type="button" class="icon-btn" id="queue-btn" aria-label="Queue" title="Queue">
+          <svg viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M15 3H1v1.5h14V3zm0 4.5H6V9h9V7.5zM15 12H1v1.5h14V12zM4.5 6.5 1 9l3.5 2.5V6.5z"/></svg>
+        </button>
+        <div class="volume">
+          <button type="button" class="icon-btn" id="mute-btn" aria-label="Mute">
+            <svg viewBox="0 0 16 16" width="16" height="16"><path fill="currentColor" d="M9.74 1.07A.75.75 0 0 1 10.5 1.8v12.4a.75.75 0 0 1-1.2.6L5.2 11.5H2.75A.75.75 0 0 1 2 10.75v-5.5a.75.75 0 0 1 .75-.75H5.2l4.1-3.3a.75.75 0 0 1 .44-.13zm3.05 3.19a.75.75 0 0 1 1.06 0 4.5 4.5 0 0 1 0 6.36.75.75 0 1 1-1.06-1.06 3 3 0 0 0 0-4.24.75.75 0 0 1 0-1.06z"/></svg>
+          </button>
+          <input type="range" id="volume" min="0" max="1" step="0.01" value="0.8" aria-label="Volume" />
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <audio id="audio" preload="metadata"></audio>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="app.js"></script>
+</body>
+</html>

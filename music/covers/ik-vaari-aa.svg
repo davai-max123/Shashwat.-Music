@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" role="img" aria-label="Ik Vaari Aa cover">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2b1055"/>
+      <stop offset="45%" stop-color="#6b21a8"/>
+      <stop offset="100%" stop-color="#f472b6"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#fce7f3" stop-opacity="0.55"/>
+      <stop offset="100%" stop-color="#2b1055" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="640" height="640" fill="url(#bg)"/>
+  <circle cx="320" cy="250" r="220" fill="url(#glow)"/>
+  <circle cx="320" cy="300" r="118" fill="#111827" opacity="0.35"/>
+  <circle cx="320" cy="300" r="96" fill="none" stroke="#fce7f3" stroke-width="10"/>
+  <circle cx="320" cy="300" r="28" fill="#fce7f3"/>
+  <path d="M248 410c28 48 96 78 144 78s116-30 144-78" fill="none" stroke="#f9a8d4" stroke-width="10" stroke-linecap="round"/>
+  <text x="320" y="545" text-anchor="middle" fill="#fff" font-family="Georgia, serif" font-size="42" font-weight="700">Ik Vaari Aa</text>
+  <text x="320" y="585" text-anchor="middle" fill="#fbcfe8" font-family="Arial, sans-serif" font-size="22">Arijit Singh</text>
+</svg>
